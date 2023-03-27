@@ -1,19 +1,11 @@
 <?php
-session_start();
-// Conexión a la base de datos
-$host = "localhost:3600";
-$dbname = "id19897981_escuela";
-$username = "id19897981_admin";
-$password = "~CR@*@NEx7p^UTfa";
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL);
 
-// Crear conexión
-try {
-    $conn = new PDO("mysql:host=$host;dbname=$dbname", $username, $password);
-    // Setear el modo de error PDO a excepción
-    $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-} catch(PDOException $e) {
-    echo "Connection failed: " . $e->getMessage();
-}
+
+include "../config.php";
+session_start();
 
 // Recibir la matrícula del estudiante a borrar
 $id = $_POST['id'];

@@ -1,20 +1,6 @@
 <?php
 session_start();
-// Conexión a la base de datos
-$host = "localhost:3600";
-$dbname = "id19897981_escuela";
-$username = "id19897981_admin";
-$password = "~CR@*@NEx7p^UTfa";
-
-// Crear conexión
-try {
-    $conn = new PDO("mysql:host=$host;dbname=$dbname", $username, $password);
-    // Setear el modo de error PDO a excepción
-    $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-    echo "Conectado"; 
-} catch(PDOException $e) {
-    echo "Connection failed: " . $e->getMessage();
-}
+include "../config.php";
 
     // Recibir datos del formulario
 $id = $_POST['id'];
@@ -41,9 +27,6 @@ $stmt->bindParam(':grupo', $grupo);
 $stmt->bindParam(':turno', $turno);
 $stmt->bindParam(':estatus', $estatus);
 
-// Imprimir la consulta SQL y los parámetros
-echo $stmt->queryString;
-echo '<br>';
 var_dump($stmt->debugDumpParams());
 
 $stmt->execute();

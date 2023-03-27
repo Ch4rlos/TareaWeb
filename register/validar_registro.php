@@ -1,19 +1,5 @@
 <?php
-// Conexión a la base de datos
-$host = "localhost";
-$dbname = "id19897981_escuela";
-$username = "id19897981_admin";
-$password = "~CR@*@NEx7p^UTfa";
-
-// Crear conexión
-try {
-    $conn = new PDO("mysql:host=$host;dbname=$dbname", $username, $password);
-    // Setear el modo de error PDO a excepción
-    $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-    echo "Connected successfully";
-} catch(PDOException $e) {
-    echo "Connection failed: " . $e->getMessage();
-}
+include "../config.php";
 // Verificar conexión
 if (!$conn) {
     die("Conexión fallida: " . mysqli_connect_error());
